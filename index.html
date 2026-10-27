@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>TaskFlow</title>
+  <link rel="icon" type="image/jpeg" href="assets/images/logo-sekolah.jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/loader.js"></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="logo"><img class="logo-img" src="assets/images/logo-sekolah.jpg" alt="Logo SMK Bagimu Negeriku"><span class="label">TaskFlow<small class="school">SMK Bagimu Negeriku</small></span></div>
+      <nav class="nav">
+        <button data-view="dashboard" class="active"><i data-lucide="layout-dashboard"></i><span class="label">Beranda</span></button>
+        <button data-view="tasks"><i data-lucide="list-checks"></i><span class="label">Tugas Saya</span></button>
+        <button data-view="today"><i data-lucide="calendar-days"></i><span class="label">Hari Ini</span></button>
+        <button data-view="important"><i data-lucide="star"></i><span class="label">Penting</span></button>
+        <button data-view="completed"><i data-lucide="circle-check"></i><span class="label">Selesai</span></button>
+        <button data-view="settings"><i data-lucide="settings"></i><span class="label">Pengaturan</span></button>
+        <button data-logout class="push"><i data-lucide="log-out"></i><span class="label">Keluar</span></button>
+      </nav>
+      <div class="user">
+        <div class="menu hidden" id="userMenu">
+          <button data-view="profile"><i data-lucide="user"></i>Profil</button>
+          <button data-view="settings"><i data-lucide="settings"></i>Pengaturan</button>
+          <button data-logout><i data-lucide="log-out"></i>Keluar</button>
+        </div>
+        <button class="user-btn" id="userBtn">
+          <span class="avatar" id="sbAvatar"></span>
+          <span class="user-info label"><b id="sbName"></b><small id="sbEmail"></small></span>
+        </button>
+      </div>
+    </aside>
+    <div class="scrim" id="scrim"></div>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Menu"><i data-lucide="menu"></i></button>
+        <div class="greet"><h1 id="greeting"></h1><p>Ayo selesaikan tugasmu hari ini.</p></div>
+        <label class="search"><i data-lucide="search"></i><input id="search" type="search" placeholder="Cari tugas..."></label>
+        <button class="icon-btn" id="bell" aria-label="Notifikasi"><i data-lucide="bell"></i></button>
+        <button class="avatar" id="headerAvatar" aria-label="Profil"></button>
+      </header>
+
+      <section id="view-tasks">
+        <div class="stats" id="stats"></div>
+        <div class="panel-head"><h2 id="listTitle">Tugas Saya</h2><button class="btn btn-primary" id="addTask"><i data-lucide="plus"></i>Tambah Tugas</button></div>
+        <div class="chips" id="chips"></div>
+        <div class="filters">
+          <select class="control" id="fPriority"></select>
+          <select class="control" id="fCategory"></select>
+          <select class="control" id="fDue"></select>
+          <select class="control" id="fSort"></select>
+        </div>
+        <div class="list" id="taskList"></div>
+      </section>
+      <section id="view-profile" class="hidden"></section>
+      <section id="view-settings" class="hidden"></section>
+    </main>
+  </div>
+
+  <div class="overlay" id="overlay"><div class="modal" id="modalBox"></div></div>
+
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/tasks.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
